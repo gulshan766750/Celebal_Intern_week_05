@@ -1,42 +1,32 @@
 # Celebal_Intern_week_05
 
-Problem Statement:
-A college needs to develop a system that tracks the Open Elective Subjects of their students. During the start of
-the year a lot of students change their subjects and college wants to preserve that entire timeline of the data.
-For example, Mohit had selected “Eco philosophy” as his Open Elective subject but later he wished to switch to
-“Basics of Accounting” in this scenario the college wants the visibility of Mohit’s previous choice as well instead
-of just the active one:
-There is one table that holds the record of this change, and it is called SubjectAllotments
-The below table has the subject to student mapping with the preference
-Note: The details of the columns are as following:
-• StudentID varchar
-• SubjectID varchar
-• Is_Valid bit
-StudentId SubjectId Is_valid
-159103036 PO1491 1
-159103036 PO1492 0
-159103036 PO1493 0
-159103036 PO1494 0
-159103036 PO1495 0
- (Table Name: SubjectAllotments)
-In the above example we can see the student’s active subject is “PO1491” but at some point the student was
-allotted other subjects.
-When a student requests an allotment the request details are stored in a table called “SubjectRequest”
-StudentId SubjectId
-159103036 PO1496
- (Table Name: SubjectRequest)
-We can see that the student has requested a change.
-Here we have to check the current subject of the student (where is_valid=1) is different from the request or not,
-if the subject is different we insert another record in the table making the new record valid and changing the
-previously valid record to invalid, the output is indicated in the below table:
-StudentId SubjectId Is_valid
-159103036 PO1496 1
-159103036 PO1491 0
-159103036 PO1492 0
-159103036 PO1493 0
-159103036 PO1494 0
-159103036 PO1495 0
-(Table Name: SubjectAlottments)
-If the student id that is present in the SubjectRequest Table does not exist in the SubjectAlottments table then
-we simply insert the requested subject as a valid record in the SubjectAllotments Table
-Your Task is to write a Stored Procedure to implement the above stated workflow.
+Subject Change Request Problem
+This repository contains a solution for managing subject change requests for a college using SQL Server.
+
+Problem Statement
+A college needs to develop a system that tracks the Open Elective Subjects of their students. The system should maintain a history of subject changes for each student, showing both current and previous choices.
+
+Solution
+Database Tables
+Two main tables are used:
+
+SubjectAllotments: Stores current and historical subject allotments for students.
+SubjectRequest: Records requests for subject changes.
+Stored Procedure
+A stored procedure UpdateSubjectAllotments is implemented to:
+
+Check and update subject allotments based on change requests.
+Ensure visibility of both current and previous subject choices for students.
+Example Usage
+Sample SQL scripts demonstrate:
+
+Creation of database tables (SubjectAllotments, SubjectRequest).
+Insertion of sample data.
+Execution of the UpdateSubjectAllotments stored procedure to process a subject change request.
+Contact
+If you have any questions or suggestions, feel free to reach out to me at:
+
+Name: Gulshan Kumar
+ID: CT_CSI_SQ_5556
+Email: gulshankumar766750@gmail.com
+LinkedIn: Gulshan Kumar
